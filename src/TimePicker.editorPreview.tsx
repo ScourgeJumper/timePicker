@@ -1,12 +1,11 @@
 import { Component, ReactNode, createElement } from "react";
-import { DateInput } from "./components/DateInput";
+import { TextInput } from "./components/TextInput";
 import { TimePickerPreviewProps } from "../typings/TimePickerProps";
 
 declare function require(name: string): string;
 export class preview extends Component<TimePickerPreviewProps> {
     render(): ReactNode {
-        const value = `[${this.props.dateAttribute}]`;
-        return <DateInput value={value} />;
+        return <TextInput value={this.props.textAttribute} />;
     }
 }
 
