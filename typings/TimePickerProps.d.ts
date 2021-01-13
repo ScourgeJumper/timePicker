@@ -11,11 +11,11 @@ export interface TimePickerContainerProps {
     class: string;
     style?: CSSProperties;
     tabIndex: number;
-    textAttribute: EditableValue<string>;
+    dateAttribute: EditableValue<Date>;
 }
 
 export interface TimePickerPreviewProps {
     class: string;
     style: string;
-    textAttribute: string;
+    dateAttribute: string;
 }

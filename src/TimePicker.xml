@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="mendix.textbox.TextBox" pluginWidget="true" needsEntityContext="true" supportedPlatform="Web" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../xsd/widget.xsd">
-    <name>Text Box</name>
+<widget id="byu campus accomodations.timepicker.TimePicker" pluginWidget="true" needsEntityContext="true" supportedPlatform="Web" offlineCapable="true"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../xsd/widget.xsd">
+    <name>Time Picker</name>
     <description>Edit text input</description>
     <icon/>
     <properties>
+        <propertyGroup caption="Label">
+            <systemProperty key="Label" />
+        </propertyGroup>
         <propertyGroup caption="Data source">
-            <property key="textAttribute" type="attribute">
+            <property key="dateAttribute" type="attribute">
                 <caption>Attribute (path)</caption>
                 <description/>
                 <attributeTypes>
-                    <attributeType name="String"/>
+                    <attributeType name="DateTime"/>
                 </attributeTypes>
             </property>
         </propertyGroup>

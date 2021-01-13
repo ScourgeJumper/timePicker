@@ -1,11 +1,21 @@
-import { Component, ReactNode, createElement } from "react";
+import classNames from "classnames";
+import { Component, ReactNode, createElement, CSSProperties } from "react";
 
 export interface InputProps {
     value: string;
+    className?: string;
+    index?: number;
+    style?: CSSProperties;
+    tabIndex?: number;
 }
 
 export class TextInput extends Component<InputProps> {
     render(): ReactNode {
-        return <input type="text" value={this.props.value} />;
+        const className = classNames("form-control", this.props.className);
+        return <input 
+            type="text" 
+            className={className}
+            value={this.props.value} 
+        />;
     }
 }
