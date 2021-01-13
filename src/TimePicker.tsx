@@ -20,6 +20,7 @@ function formatAMPM(date:Date) {
   }
    
 class TimePicker extends Component<TimePickerContainerProps> {
+    private readonly onLeaveHandle = this.onLeave.bind(this);
     render(): ReactNode {
         const value = this.props.dateAttribute.value ? formatAMPM(this.props.dateAttribute.value)  : '';
         return <Fragment>
@@ -28,11 +29,18 @@ class TimePicker extends Component<TimePickerContainerProps> {
         style={this.props.style}
         className={this.props.class}
         tabIndex={this.props.tabIndex}
+        onLeave={this.onLeaveHandle}
          />;
          <DateInput />;
 
         </Fragment>
          
+    }
+    private onLeave(value: string, isChanged: boolean): void {
+        if (!isChanged) {
+            return;
+        }
+        this.props.dateAttribute.setValue(value);
     }
 }
 

@@ -18,5 +18,11 @@
                 </attributeTypes>
             </property>
         </propertyGroup>
+        <propertyGroup caption="Events">
+            <property key="onChangeAction" type="action" required="false">
+                <caption>On change</caption>
+                <description/>
+            </property>
+        </propertyGroup>
     </properties>
 </widget>
