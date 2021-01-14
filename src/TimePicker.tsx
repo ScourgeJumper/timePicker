@@ -18,6 +18,16 @@ function formatAMPM(date:Date) {
     var strTime = hours + ':' + minuteString + ' ' + ampm;
     return strTime;
   }
+  function changeTime(date:Date, time:string) {
+      let parts = time.split(/\s|:/);
+      let hours = parseInt(parts[0]) - 1;
+      let minutes = parseInt(parts[1]) - 1;
+      let meridian = parts[2];
+      hours = meridian === 'PM' ? hours + 12 : hours;
+      return new Date(date.setHours(hours, minutes));
+      
+
+  }
    
 class TimePicker extends Component<TimePickerContainerProps> {
     private readonly onLeaveHandle = this.onLeave.bind(this);
@@ -40,8 +50,11 @@ class TimePicker extends Component<TimePickerContainerProps> {
         if (!isChanged) {
             return;
         }
-        this.props.dateAttribute.setValue(value);
+        let date = this.props.dateAttribute.value ? this.props.dateAttribute.value : new Date;
+        date = changeTime(date, value);
+        this.props.dateAttribute.setValue(date);
     }
+
 }
 
 export default hot(TimePicker);

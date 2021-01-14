@@ -4,7 +4,7 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { EditableValue } from "mendix";
+import { ActionValue, EditableValue } from "mendix";
 
 export interface TimePickerContainerProps {
     name: string;
@@ -12,10 +12,12 @@ export interface TimePickerContainerProps {
     style?: CSSProperties;
     tabIndex: number;
     dateAttribute: EditableValue<Date>;
+    onChangeAction?: ActionValue;
 }
 
 export interface TimePickerPreviewProps {
     class: string;
     style: string;
     dateAttribute: string;
+    onChangeAction: {} | null;
 }
