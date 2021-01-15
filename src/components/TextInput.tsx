@@ -2,12 +2,17 @@ import classNames from "classnames";
 import { Component, ReactNode, createElement, CSSProperties, ChangeEvent } from "react";
 
 export interface InputProps {
+    id?: string;
     value: string;
     className?: string;
     index?: number;
     style?: CSSProperties;
     tabIndex?: number;
-    onLeave?: (value: string, changed:boolean) => void;
+    hasError?: boolean;
+    required?: boolean;
+    disabled?: boolean;
+    onLeave?: (value: string, changed: boolean) => void;
+    placeholderText?: string;
 }
 interface InputState {
     editedValue?: string;
@@ -23,13 +28,22 @@ export class TextInput extends Component<InputProps> {
     }
     render(): ReactNode {
         const className = classNames("form-control", this.props.className);
+        const labelledby = `${this.props.id}-label`
+        + (this.props.hasError ? ` ${this.props.id}-error` : "");
         return <input 
-            type="text" 
+            id={this.props.id}
+            type="text"
             className={className}
-            value={this.getCurrentValue()} 
+            style={this.props.style}
+            value={this.getCurrentValue()}
             tabIndex={this.props.tabIndex}
             onChange={this.onChangeHandle}
+            disabled={this.props.disabled}
             onBlur={this.onBlurHandle}
+            aria-labelledby={labelledby}
+            aria-invalid={this.props.hasError}
+            aria-required={this.props.required}
+            placeholder={this.props.placeholderText}
         />;
     }
     private getCurrentValue(): string {
