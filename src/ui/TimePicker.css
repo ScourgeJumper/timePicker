@@ -1,6 +1,14 @@
 /*
 Place your custom CSS here
 */
-.widget-hello-world {
-   
+.time-picker {
+    width: 100%;
+    
+}
+.time-picker .text-input {
+    width: inherit;
+}
+
+.time-picker .react-timekeeper {
+    position: absolute;
 }

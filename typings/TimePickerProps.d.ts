@@ -11,15 +11,21 @@ export interface TimePickerContainerProps {
     class: string;
     style?: CSSProperties;
     tabIndex: number;
+    animate: boolean;
+    autoClose: boolean;
     dateAttribute: EditableValue<Date>;
     requiredMessage?: DynamicValue<string>;
     onChangeAction?: ActionValue;
+    onEnterAction?: ActionValue;
 }
 
 export interface TimePickerPreviewProps {
     class: string;
     style: string;
+    animate: boolean;
+    autoClose: boolean;
     dateAttribute: string;
     requiredMessage: string;
     onChangeAction: {} | null;
+    onEnterAction: {} | null;
 }
